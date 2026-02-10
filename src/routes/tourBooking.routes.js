@@ -24,7 +24,7 @@ router.get("/property/:propertyId", getTourBookingsByProperty);
  * ADMIN ROUTES
  */
 // Get all tour bookings
-router.get("/", adminAuth, getTourBookings);
+router.get("/", getTourBookings);
 
 // Get single tour booking
 router.get("/:id", adminAuth, getTourBookingById);
