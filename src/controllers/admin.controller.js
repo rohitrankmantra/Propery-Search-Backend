@@ -9,13 +9,14 @@ export const loginAdmin = (req, res) => {
 
   const token = signToken({ role: "admin", email });
 
-  res.cookie(process.env.COOKIE_NAME, token, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-    maxAge: 24 * 60 * 60 * 1000,
-  });
+ res.cookie(process.env.COOKIE_NAME, token, {
+  httpOnly: true,
+  sameSite: "none", // 🔥 MUST for cross-domain
+  secure: true,     // 🔥 REQUIRED with sameSite=none
+  path: "/",
+  maxAge: 24 * 60 * 60 * 1000,
+});
+
 
   return res.json({
     success: true,
@@ -24,12 +25,12 @@ export const loginAdmin = (req, res) => {
 };
 
 export const logoutAdmin = (req, res) => {
-  res.clearCookie(process.env.COOKIE_NAME, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-  });
+res.clearCookie(process.env.COOKIE_NAME, {
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+  path: "/",
+});
 
   return res.json({
     success: true,
