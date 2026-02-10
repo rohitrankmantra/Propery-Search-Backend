@@ -9,6 +9,7 @@ import propertyRoutes from "./src/routes/property.routes.js";
 import uploadRoutes from "./src/routes/upload.routes.js";
 import blogRoutes from "./src/routes/blog.routes.js";
 import contactRoutes from "./src/routes/contact.routes.js";
+import tourBookingRoutes from "./src/routes/tourBooking.routes.js";
 
 dotenv.config();
 
@@ -45,10 +46,11 @@ app.get("/health", (req, res) => res.json({ status: "ok" }));
 app.get("/", (req, res) => res.send("API running"));
 
 app.use("/api/admin", adminRoutes);
-app.use("/api/upload", uploadRoutes);   // ✅ NEW
+app.use("/api/upload", uploadRoutes);
 app.use("/api/properties", propertyRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/tour-bookings", tourBookingRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
