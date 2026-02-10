@@ -7,15 +7,26 @@ import {
   getPropertyById,
   updateProperty,
   deleteProperty,
+  getPropertiesByCity,
 } from "../controllers/property.controller.js";
 
 const router = express.Router();
+
+/**
+ * PUBLIC ROUTE
+ * Get properties by city (slug based)
+ */
+router.get("/city/:city", getPropertiesByCity);
+
+/**
+ * ADMIN ROUTES
+ */
 
 // CREATE property
 router.post("/", adminAuth, createProperty);
 
 // GET all properties
-router.get("/", adminAuth, getAllProperties);
+router.get("/", getAllProperties);
 
 // GET single property
 router.get("/:id", adminAuth, getPropertyById);

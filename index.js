@@ -26,7 +26,6 @@ app.use(cookieParser());
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:3000",
- 
 ];
 
 app.use(

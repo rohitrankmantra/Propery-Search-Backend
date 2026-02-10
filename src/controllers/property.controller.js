@@ -161,3 +161,28 @@ export const deleteProperty = async (req, res) => {
     res.status(500).json({ message: "Failed to delete property" });
   }
 };
+
+
+/**
+ * GET PROPERTIES BY CITY (PUBLIC)
+ */
+export const getPropertiesByCity = async (req, res) => {
+  try {
+    const city = req.params.city;
+
+    const properties = await Property.find({
+      city: { $regex: new RegExp(`^${city}$`, "i") },
+    }).sort({ createdAt: -1 });
+
+    res.json({
+      success: true,
+      city,
+      count: properties.length,
+      items: properties,
+    });
+  } catch (error) {
+    console.error("Get properties by city error:", error);
+    res.status(500).json({ message: "Failed to fetch properties by city" });
+  }
+};
+
