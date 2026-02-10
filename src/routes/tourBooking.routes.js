@@ -27,7 +27,7 @@ router.get("/property/:propertyId", getTourBookingsByProperty);
 router.get("/", getTourBookings);
 
 // Get single tour booking
-router.get("/:id", adminAuth, getTourBookingById);
+router.get("/:id", getTourBookingById);
 
 // Update tour booking status
 router.put("/:id", adminAuth, updateTourBooking);
