@@ -3,7 +3,7 @@ import { signToken } from "../utils/jwt.js";
 export const loginAdmin = (req, res) => {
   const { email, password } = req.body;
 
-  if (email !== "admin@gmail.com" || password !== "123456") {
+  if (email !== "admin@gmail.com" || password !== "property123") {
     return res.status(401).json({ message: "Invalid credentials" });
   }
 
