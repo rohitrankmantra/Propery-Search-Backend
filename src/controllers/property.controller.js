@@ -10,9 +10,10 @@ export const createProperty = async (req, res) => {
       city,
       location,
       price,
-      beds,
-      baths,
       sqft,
+      carpetArea,
+      superBuiltUpArea,
+      landmarks,
       description,
       status,
       image,
@@ -25,7 +26,7 @@ export const createProperty = async (req, res) => {
       return res.status(400).json({ message: "Invalid property status" });
     }
 
-    if (!title || !city || !location || !price || !beds || !baths || !sqft || !description) {
+    if (!title || !city || !location || !price || !sqft || !description) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -38,9 +39,10 @@ export const createProperty = async (req, res) => {
       city,
       location,
       price,
-      beds,
-      baths,
       sqft,
+      carpetArea,
+      superBuiltUpArea,
+      landmarks,
       description,
       status,
       image,
@@ -111,9 +113,10 @@ export const updateProperty = async (req, res) => {
       "city",
       "location",
       "price",
-      "beds",
-      "baths",
       "sqft",
+      "carpetArea",
+      "superBuiltUpArea",
+      "landmarks",
       "description",
       "status",
       "image",

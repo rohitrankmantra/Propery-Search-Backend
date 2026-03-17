@@ -32,20 +32,25 @@ const propertySchema = new mongoose.Schema(
       required: true,
     },
 
-    beds: {
-      type: Number,
-      required: true,
-    },
-
-    baths: {
-      type: Number,
-      required: true,
-    },
-
     sqft: {
       type: Number,
       required: true,
     },
+
+    carpetArea: {
+      type: Number,
+    },
+
+    superBuiltUpArea: {
+      type: Number,
+    },
+
+    landmarks: [
+      {
+        name: String,
+        distance: String,
+      },
+    ],
 
     description: {
       type: String,
