@@ -27,7 +27,10 @@ app.use(cookieParser());
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:3000",
-  "https://new-property-lyart.vercel.app"
+  "https://new-property-lyart.vercel.app",
+  "https://www.propertysearch.in/",
+  "http://www.propertysearch.in/",
+  
 ];
 
 app.use(
